@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Su Tasarrufu Projesi | Suyun Korunumu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+         :root {
+            --primary-color: #2a9d8f;
+            --secondary-color: #1d7874;
+            --accent-color: #8ecae6;
+            --light-color: #e9f5db;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: #000 !important;
+        }
+        
+        .navbar-dark .navbar-brand,
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        .navbar-dark .navbar-brand:hover,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+        
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .navbar-dark .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #1d7874 !important;
+            font-weight: bold;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(42, 157, 143, 0.8), rgba(29, 120, 116, 0.8)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09') center/cover no-repeat;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .benefit-card {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateX(10px);
+        }
+        
+        .tip-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            transition: transform 0.3s ease;
+            background-color: var(--light-color);
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tip-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+        }
+        
+        .stat-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .impact-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        
+        .back-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .nav-logo {
+            font-weight: 700;
+            color: #1d7874 !important;
+        }
+        
+        footer {
+            background-color: #000;
+            color: white;
+        }
+        
+        .water-drop {
+            color: #1d7874;
+        }
+        
+        .impact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .impact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand nav-logo" href="index4.html">
+                <i class="bi bi-droplet water-drop"></i> Suyun Korunumu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index4.html">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index4.html#projeler">Projeler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Su Tasarrufu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index4.html#iletisim">İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h1 class="display-4 fw-bold mb-4">Su Tasarrufu Projesi</h1>
+                <p class="lead mb-5">Günlük yaşamda basit önlemlerle su tüketimini azaltarak, gelecek nesillere daha yaşanabilir bir dünya bırakıyoruz.</p>
+                <a href="#proje-detay" class="btn btn-light btn-lg">Proje Detayları</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projeler -->
+    <section id="proje-detay" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title">Proje Hakkında</h2>
+                    <p class="mb-4">Su Tasarrufu Projesi, bireylerin ve kurumların günlük yaşamlarında su tüketimini azaltmalarına yardımcı olacak pratik çözümler sunmayı hedefleyen bir farkındalık girişimidir.</p>
+                    <p>Bu proje kapsamında, evlerde, okullarda ve işyerlerinde uygulanabilecek basit ancak etkili su tasarrufu yöntemleri paylaşılmakta ve toplumda su bilinci oluşturulması amaçlanmaktadır.</p>
+                    <div class="mt-4">
+                        <a href="#tasarruf-yontemleri" class="btn btn-primary me-3">Tasarruf Yöntemleri</a>
+                        <a href="#faydalar" class="btn btn-outline-primary">Faydaları Görün</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a" alt="Su Tasarrufu" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Su Tasarufunun Faydaları -->
+    <section id="faydalar" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Su Tasarrufunun Faydaları</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="benefit-card">
+                        <h4><i class="bi bi-cash-coin water-drop me-2"></i> Ekonomik Tasarruf</h4>
+                        <p>Su tasarrufu yaparak aile bütçenizde önemli ölçüde tasarruf sağlayabilirsiniz. Basit önlemlerle su faturanızı %30'a kadar düşürmek mümkün.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-card">
+                        <h4><i class="bi bi-droplet water-drop me-2"></i> Su Kaynaklarının Korunumu</h4>
+                        <p>Su tasarrufu, kuraklık riskini azaltır ve gelecek nesiller için temiz su kaynaklarının devamlılığını sağlar.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-card">
+                        <h4><i class="bi bi-lightning water-drop me-2"></i> Enerji Tasarrufu</h4>
+                        <p>Su tasarrufu aynı zamanda enerji tasarrufu demektir. Suyun arıtılması, ısıtılması ve taşınması için harcanan enerji azalır.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-card">
+                        <h4><i class="bi bi-heart water-drop me-2"></i> Çevresel Sürdürülebilirlik</h4>
+                        <p>Su kaynaklarının korunması, ekosistemlerin devamlılığı ve biyolojik çeşitliliğin korunması için hayati öneme sahiptir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pratik Su Tasarufu Yöntemleri -->
+    <section id="tasarruf-yontemleri" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Pratik Su Tasarrufu Yöntemleri</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="zoom-in">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="bi bi-shower"></i>
+                        </div>
+                        <h4>Duş Süresini Kısaltın</h4>
+                        <p>Duş sürenizi 1-2 dakika kısaltarak yılda 10-15 ton su tasarrufu sağlayabilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="bi bi-bucket"></i>
+                        </div>
+                        <h4>Muslukları Tamir Edin</h4>
+                        <p>Damlayan bir musluk yılda 15.000 litreye kadar su israfına neden olur. Musluk contalarını düzenli kontrol edin.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="bi bi-flower1"></i>
+                        </div>
+                        <h4>Bitkileri Akşam Sulayın</h4>
+                        <p>Bitkileri sabah erken veya akşam geç saatlerde sulayarak buharlaşmayı %60 azaltabilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <h4>Bulaşık Makinesini Tam Doldurun</h4>
+                        <p>Bulaşık makinesini tam dolu çalıştırarak elde yıkamaya göre %80 su tasarrufu sağlayın.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="bi bi-recycle"></i>
+                        </div>
+                        <h4>Gri Suyu Değerlendirin</h4>
+                        <p>Sebze-meyve yıkama sularını çiçek sulamada kullanarak suyu yeniden değerlendirin.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="bi bi-snow"></i>
+                        </div>
+                        <h4>Su Tasarruflu Armatürler</h4>
+                        <p>Tasarruflu duş başlığı ve musluk aeratörleri kullanarak su tüketimini %50 azaltın.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İstatistikler -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <h2 class="section-title text-center text-white" data-aos="fade-up">Su Tasarrufu İstatistikleri</h2>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4" data-aos="fade-up">
+                    <div class="stat-card bg-transparent text-white border border-white">
+                        <div class="stat-number">%25</div>
+                        <p>Evsel Su Tasarrufu Potansiyeli</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card bg-transparent text-white border border-white">
+                        <div class="stat-number">160L</div>
+                        <p>Kişi Başı Günlük Tüketim</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card bg-transparent text-white border border-white">
+                        <div class="stat-number">10.000+</div>
+                        <p>Eğitim Verilen Öğrenci</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card bg-transparent text-white border border-white">
+                        <div class="stat-number">5M L</div>
+                        <p>Yıllık Tasarruf Edilen Su</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Su Tasarufunun Etkileri -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Su Tasarrufunun Etkisi</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="impact-section h-100">
+                        <h4 class="mb-4">Küçük Tasarrufların Büyük Etkisi</h4>
+
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <i class="bi bi-droplet"></i>
+                            </div>
+                            <div>
+                                <h5>Diş Fırçalarken Musluğu Kapatmak</h5>
+                                <p class="mb-0">Günde 2 kez diş fırçalarken musluğu kapatarak yılda 10.000 litre su tasarrufu sağlayabilirsiniz.</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            <div>
+                                <h5>Duş Süresini Azaltmak</h5>
+                                <p class="mb-0">Duş süresini 1 dakika kısaltarak yılda 7.300 litre su tasarrufu yapabilirsiniz.</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <div>
+                                <h5>Çamaşır Makinesini Tam Doldurmak</h5>
+                                <p class="mb-0">Çamaşır makinesini tam dolu çalıştırarak yılda 9.000 litre su tasarrufu sağlayabilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a" class="card-img-top" alt="Su Tasarrufu">
+                        <div class="card-body">
+                            <h4 class="card-title">Su Ayak İzinizi Azaltın</h4>
+                            <p class="card-text">Su ayak izi, bir ürünün üretiminden tüketimine kadar tüm süreçlerde kullanılan toplam su miktarıdır. Günlük alışkanlıklarınızı değiştirerek su ayak izinizi önemli ölçüde azaltabilirsiniz.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">1 kg sığır eti = 15.000 litre su</li>
+                                <li class="list-group-item">1 fincan kahve = 140 litre su</li>
+                                <li class="list-group-item">1 pamuklu tişört = 2.700 litre su</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kamanya  -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <div data-aos="zoom-in">
+                <h2 class="mb-4">Su Tasarrufu Kampanyamıza Katılın</h2>
+                <p class="lead mb-4">Okulunuzda, işyerinizde veya mahallenizde su tasarrufu bilinci oluşturmak için bizimle çalışın. Uzman ekibimiz eğitim ve danışmanlık hizmeti sunmaktadır.</p>
+                <a href="index4.html#iletisim" class="btn btn-primary btn-lg me-3">İletişime Geçin</a>
+                <a href="index4.html" class="back-btn"><i class="bi bi-arrow-left me-2"></i> Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Suyun Korunumu Projesi | Tüm Hakları Saklıdır</p>
+        </div>
+    </footer>
+
+    <!-- Java Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+
+</html>

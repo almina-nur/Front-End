@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yağmur Suyu Koruma Projesi | Suyun Korunumu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+         :root {
+            --primary-color: #0077b6;
+            --secondary-color: #00b4d8;
+            --accent-color: #90e0ef;
+            --light-color: #caf0f8;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 76px;
+        }
+        
+        .navbar {
+            background-color: #000 !important;
+        }
+        
+        .navbar-dark .navbar-brand,
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        .navbar-dark .navbar-brand:hover,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+        
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .navbar-dark .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #00b4d8 !important;
+            font-weight: bold;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 87, 146, 0.8), rgba(0, 180, 216, 0.8)), url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .benefit-card {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateX(10px);
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .stat-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .system-diagram {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        
+        .back-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .nav-logo {
+            font-weight: 700;
+            color: #00b4d8 !important;
+        }
+        
+        footer {
+            background-color: #000;
+            color: white;
+        }
+        
+        .water-drop {
+            color: #00b4d8;
+        }
+        
+        .impact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .impact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .process-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .card-img-top {
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand nav-logo" href="index4.html">
+                <i class="bi bi-droplet water-drop"></i> Suyun Korunumu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index4.html">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index4.html#projeler">Projeler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Yağmur Suyu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index4.html#iletisim">İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h1 class="display-4 fw-bold mb-4">Yağmur Suyu Koruma Projesi</h1>
+                <p class="lead mb-5">Doğanın bize sunduğu yağmur sularını verimli kullanarak, su kaynaklarımızı koruyor ve sürdürülebilir bir gelecek inşa ediyoruz.</p>
+                <a href="#proje-detay" class="btn btn-light btn-lg">Proje Detayları</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projeler -->
+    <section id="proje-detay" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title">Proje Hakkında</h2>
+                    <p class="mb-4">Yağmur Suyu Koruma Projesi, özellikle okullar ve kamu binalarında yağmur sularının toplanarak yeniden kullanımını sağlamayı hedefleyen bir sürdürülebilirlik girişimidir.</p>
+                    <p>Bu proje ile yağmur suları depolanarak, bahçe sulama, tuvalet temizliği ve temizlik işlerinde kullanılmakta, böylece şebeke suyu tüketiminde önemli ölçüde tasarruf sağlanmaktadır.</p>
+                    <div class="mt-4">
+                        <a href="#sistem-nasil-calisir" class="btn btn-primary me-3">Sistem Nasıl Çalışır?</a>
+                        <a href="#faydalar" class="btn btn-outline-primary">Faydaları Görün</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://inventoenerji.com/wp-content/uploads/2020/05/Yagmur-Suyu.jpg" alt=" Yağmur Suyu Toplama Sistemi " class="img-fluid rounded shadow " style="width: %100;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yağmur Suyu Toplamanın Faydaalrı -->
+    <section id="faydalar " class="py-5 bg-light ">
+        <div class="container ">
+            <h2 class="section-title text-center " data-aos="fade-up ">Yağmur Suyu Toplamanın Faydaları</h2>
+            <div class="row ">
+                <div class="col-md-6 " data-aos="fade-up ">
+                    <div class="benefit-card ">
+                        <h4><i class="bi bi-cash-coin water-drop me-2 "></i> Ekonomik Tasarruf</h4>
+                        <p>Yağmur suyu kullanımı, su faturalarında %30-50 oranında tasarruf sağlar. Özellikle büyük ölçekli binalarda yıllık tasarruf miktarı oldukça yüksektir.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 " data-aos="fade-up " data-aos-delay="100 ">
+                    <div class="benefit-card ">
+                        <h4><i class="bi bi-droplet water-drop me-2 "></i> Su Kaynaklarının Korunumu</h4>
+                        <p>Yeraltı ve yerüstü su kaynaklarımız üzerindeki baskıyı azaltır, su kıtlığı riskini minimize eder.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 " data-aos="fade-up " data-aos-delay="200 ">
+                    <div class="benefit-card ">
+                        <h4><i class="bi bi-tree water-drop me-2 "></i> Çevresel Fayda</h4>
+                        <p>Yağmur suyu toplama, sel riskini azaltır, yeraltı su seviyelerinin korunmasına yardımcı olur ve kentsel ısı adası etkisini hafifletir.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 " data-aos="fade-up " data-aos-delay="300 ">
+                    <div class="benefit-card ">
+                        <h4><i class="bi bi-lightbulb water-drop me-2 "></i> Eğitim ve Farkındalık</h4>
+                        <p>Okullarda uygulandığında öğrencilere su tasarrufu bilinci kazandırır ve sürdürülebilirlik eğitimine katkı sağlar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nasıl Çalışır? -->
+    <section id="sistem-nasil-calisir " class="py-5 ">
+        <div class="container ">
+            <h2 class="section-title text-center " data-aos="fade-up ">Sistem Nasıl Çalışır?</h2>
+            <div class="row ">
+                <div class="col-lg-4 mb-4 " data-aos="zoom-in ">
+                    <div class="step-card ">
+                        <div class="step-number ">1</div>
+                        <h4>Toplama</h4>
+                        <p>Yağmur suyu, çatı yüzeylerinden oluklar vasıtasıyla toplanır ve borular aracılığıyla depolama tankına yönlendirilir.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 " data-aos="zoom-in " data-aos-delay="100 ">
+                    <div class="step-card ">
+                        <div class="step-number ">2</div>
+                        <h4>Filtreleme</h4>
+                        <p>Toplanan su, yaprak ve diğer katı maddelerden arındırılmak için filtre sisteminden geçirilir.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 " data-aos="zoom-in " data-aos-delay="200 ">
+                    <div class="step-card ">
+                        <div class="step-number ">3</div>
+                        <h4>Depolama</h4>
+                        <p>Filtrelenen su, yeraltı veya yerüstü depolama tanklarında muhafaza edilir.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 " data-aos="zoom-in " data-aos-delay="300 ">
+                    <div class="step-card ">
+                        <div class="step-number ">4</div>
+                        <h4>Dağıtım</h4>
+                        <p>Depolanan su, basit bir pompa sistemi ile bahçe sulama, tuvalet temizliği ve temizlik işlerinde kullanılmak üzere dağıtılır.</p>
+                    </div>
+                </div>
+                <div class="col-lg-8 mb-4 " data-aos="fade-up ">
+                    <div class="system-diagram h-100 d-flex align-items-center justify-content-center ">
+                        <div class="text-center ">
+                            <h4 class="mb-4 ">Yağmur Suyu Toplama Sistemi Şeması</h4>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgsO2rGHPO5OZncxWxiq26qinP6tpbPsfJzQ&s " alt="Yağmur Suyu Toplama Sistemi Şeması " class="img-fluid ">
+                            <p class="mt-3 text-muted ">Basit ve etkili bir sistemle yağmur suyunu verimli şekilde kullanın</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İstatislikler -->
+    <section class="py-5 bg-primary text-white ">
+        <div class="container ">
+            <h2 class="section-title text-center text-white " data-aos="fade-up ">Proje İstatistikleri</h2>
+            <div class="row text-center ">
+                <div class="col-md-3 mb-4 " data-aos="fade-up ">
+                    <div class="stat-card bg-transparent text-white border border-white ">
+                        <div class="stat-number ">15+</div>
+                        <p>Uygulandığı Okul</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 " data-aos="fade-up " data-aos-delay="100 ">
+                    <div class="stat-card bg-transparent text-white border border-white ">
+                        <div class="stat-number ">%40</div>
+                        <p>Su Tasarrufu</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 " data-aos="fade-up " data-aos-delay="200 ">
+                    <div class="stat-card bg-transparent text-white border border-white ">
+                        <div class="stat-number ">5.000+</div>
+                        <p>Eğitim Verilen Öğrenci</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 " data-aos="fade-up " data-aos-delay="300 ">
+                    <div class="stat-card bg-transparent text-white border border-white ">
+                        <div class="stat-number ">2.5M L</div>
+                        <p>Yıllık Toplanan Su</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Uygulama Alanları -->
+    <section class="py-5 ">
+        <div class="container ">
+            <h2 class="section-title text-center " data-aos="fade-up ">Uygulama Alanları</h2>
+            <div class="row ">
+                <div class="col-md-6 mb-4 " data-aos="fade-right ">
+                    <div class="card border-0 shadow-sm h-100 ">
+                        <img src="https://images.pexels.com/photos/3336480/pexels-photo-3336480.jpeg " class="card-img-top " alt="Okul Uygulaması " style="width: %20;">
+                        <div class="card-body ">
+                            <h4 class="card-title ">Okullar</h4>
+                            <p class="card-text ">Okullarda uygulanan yağmur suyu toplama sistemleri hem su tasarrufu sağlar hem de öğrencilere pratik çevre eğitimi imkanı sunar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 " data-aos="fade-left ">
+                    <div class="card border-0 shadow-sm h-100 ">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa " class="card-img-top " alt="Konut Uygulaması " style=" width: %200">
+                        <div class="card-body ">
+                            <h4 class="card-title ">Konutlar</h4>
+                            <p class="card-text ">Evlerde uygulanan küçük ölçekli sistemler, bahçe sulama ve temizlik işlerinde önemli ölçüde tasarruf sağlar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Uygulama Alanları -->
+    <section class="py-5 bg-light ">
+        <div class="container text-center ">
+            <div data-aos="zoom-in ">
+                <h2 class="mb-4 ">Okulunuzda veya Kurumunuzda Yağmur Suyu Projesi Başlatın</h2>
+                <p class="lead mb-4 ">Uzman ekibimiz, yağmur suyu toplama sistemlerinin kurulumu ve eğitim programları konusunda size destek sağlayabilir.</p>
+                <a href="index4.html#iletisim " class="btn btn-primary btn-lg me-3 ">İletişime Geçin</a>
+                <a href="index4.html " class="back-btn "><i class="bi bi-arrow-left me-2 "></i> Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 ">
+        <div class="container text-center ">
+            <p>&copy; 2025 Suyun Korunumu Projesi | Tüm Hakları Saklıdır</p>
+        </div>
+    </footer>
+
+    <!-- Java Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js "></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js "></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+
+</html>
